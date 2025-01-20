@@ -1,25 +1,41 @@
-import { useState } from 'react'
-import './App.css'
+import React, {useEffect, useState} from 'react'
+import {createBrowserRouter, RouterProvider} from "react-router";
+import './App.css';
+import NotesList from "./components/NotesList.jsx";
+import FormComponent from "./components/FormComponent.jsx";
+import Layout from "./components/Layout.jsx";
+import Home from "./components/pages/Home.jsx";
+import NoteDetail from "./components/pages/NoteDetail.jsx";
+import NoteCreate from "./components/pages/NoteCreate.jsx";
+
+
+const router = createBrowserRouter([
+    {
+        element: <Layout/>,
+        children: [
+            {
+                path: '/',
+                element: <Home/>,
+            },
+            {
+                path: '/notes/:id',
+                element: <NoteDetail/>,
+            },
+            {
+                path: '/notes/create',
+                element: <NoteCreate/>,
+            }
+        ]
+    }
+])
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+        return (
+          <>
+              <RouterProvider router={router}/>
+          </>
+        );
 }
 
 export default App
