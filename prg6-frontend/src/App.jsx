@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import './App.css';
-import NotesList from "./components/NotesList.jsx";
+import StonesList from "./components/StonesList.jsx";
 import FormComponent from "./components/FormComponent.jsx";
 import Layout from "./components/Layout.jsx";
 import Home from "./components/pages/Home.jsx";
-import NoteDetail from "./components/pages/NoteDetail.jsx";
-import NoteCreate from "./components/pages/NoteCreate.jsx";
+import StoneDetail from "./components/pages/StoneDetail.jsx";
+import StoneCreate from "./components/pages/StoneCreate.jsx";
 
 
 const router = createBrowserRouter([
@@ -18,12 +18,12 @@ const router = createBrowserRouter([
                 element: <Home/>,
             },
             {
-                path: '/notes/:id',
-                element: <NoteDetail/>,
+                path: '/stones/:id',
+                element: <StoneDetail/>,
             },
             {
-                path: '/notes/create',
-                element: <NoteCreate/>,
+                path: '/stones/create',
+                element: <StoneCreate/>,
             }
         ]
     }

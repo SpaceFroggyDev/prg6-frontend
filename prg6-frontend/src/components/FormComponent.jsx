@@ -6,14 +6,13 @@ function FormComponent() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        title: '',
-        body: '',
-        author: '',
+        name: '',
+        img_url: '',
+        category: '',
+        hardness: '',
+        diaphaneity: '',
+        description: '',
     });
-
-    // useEffect(()=>{
-    //     console.log("test")
-    // }[formData])
 
     // Generieke handler voor het bijwerken van de state
     const handleInputChange = (event) => {
@@ -26,11 +25,11 @@ function FormComponent() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        saveNotes()
+        saveStones()
         console.log('Formulier verzonden:', formData);
     };
 
-    const saveNotes = async ()=> {
+    const saveStones = async ()=> {
 
         try{
 

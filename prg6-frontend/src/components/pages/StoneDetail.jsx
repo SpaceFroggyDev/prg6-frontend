@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
 
-function NoteDetail() {
+function StoneDetail() {
 
     const {id} = useParams()
 
-    const [notes, setNotes] = useState([]);
+    const [stones, setStones] = useState([]);
 
     useEffect(() => {
-        async function fetchNotes() {
+        async function fetchStones() {
             try {
                 const response = await fetch(`https://notes.basboot.nl/notes/` + id, {
                     method: 'GET',
@@ -20,23 +20,23 @@ function NoteDetail() {
                 const data = await response.json();
                 console.log(data)
 
-                setNotes(data);
+                setStones(data);
 
             } catch (error) {
                 console.error('Fout bij het ophalen van het product:', error);
             }
         }
-        fetchNotes();
+        fetchStones();
     }, [id]);
 
     return (
         <>
-            <div>
-                <h5>{notes.title}</h5>
-                <p>{notes.body}</p>
-                <p>Geschreven door {notes.author}</p>
-            </div>
+            <img src={item.img_url} alt="image of a stone">
+            <h5>{item.name}</h5>
+            <p>{item.category}</p>
+            <p>{item.description}</p>
         </>
     )
 }
-export default NoteDetail
+
+export default StoneDetail

@@ -1,9 +1,9 @@
 import FormComponent from "../FormComponent.jsx";
 
-function NoteCreate() {
+function StoneCreate() {
     return(
         <FormComponent></FormComponent>
     )
 }
 
-export default NoteCreate
+export default StoneCreate

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react'
-import NotesList from "../NotesList.jsx";
+import StonesList from "../StonesList.jsx";
 import FormComponent from "../FormComponent.jsx";
 
 function Home() {
 
-    const [notes, setNotes] = useState([]);
+    const [stones, setStones] = useState([]);
 
     useEffect(() => {
-        async function fetchNotes() {
+        async function fetchStones() {
             try {
                 const response = await fetch('https://notes.basboot.nl/notes', {
                     method: 'GET',
@@ -19,13 +19,13 @@ function Home() {
                 const data = await response.json();
                 console.log(data)
 
-                setNotes(data.items);
+                setStones(data.items);
 
             } catch (error) {
                 console.error('Fout bij het ophalen van het product:', error);
             }
         }
-        fetchNotes();
+        fetchStones();
     }, []);
 
 
@@ -33,7 +33,7 @@ function Home() {
         <>
             <div>
                 {/*<FormComponent OnCreate={onSpotCreate}/>*/}
-                { notes.map((note) => <NotesList item = {note} key = {note.id}>  </NotesList>)}
+                { stones.map((stone) => <StonesList item = {stone} key = {stone.id}>  </StonesList>)}
             </div>
         </>
     );
