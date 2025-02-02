@@ -82,3 +82,52 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.stone-container {
+  background-color: #213547;
+  margin: 2vw 10vw;
+  padding: 1vw;
+  border-radius: 1vw;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+a {
+  background-color: #1a1a1a;
+  color: #959aa5;
+  margin: 1vw;
+  padding: 1vw;
+  border-radius: 2vh;
+}
+
+nav a {
+  background-color: #213547;
+  color: #959aa5;
+  margin: 0;
+}
+
+article {
+  margin: 2vw;
+}
+
+.img-container {
+  margin: 2vw;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  border-radius: 2vh;
+}
+
+.buttons {
+  margin: 1vw;
+}

@@ -1,9 +1,26 @@
-import React, {useState} from 'react';
-import {useNavigate} from "react-router";
+import React, {useEffect, useState} from 'react';
+import {useNavigate, useParams} from "react-router";
 
-function FormComponent() {
+function StoneEdit() {
 
+    const params = useParams()
     const navigate = useNavigate();
+    const [stone, setStone] = useState([]);
+
+    useEffect(() => {
+        loadStone()
+    }, []);
+
+    const loadStone = async () => {
+        const response = await fetch(`https://notes.basboot.nl/notes/${params.id}`, {
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+    const data = await response.json();
+    setStone(data);
+    console.log(data);
+}
 
     const [formData, setFormData] = useState({
         name: '',
@@ -11,7 +28,6 @@ function FormComponent() {
         description: '',
     });
 
-    // Generieke handler voor het bijwerken van de state
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFormData({
@@ -30,18 +46,18 @@ function FormComponent() {
 
         try{
 
-        const response = await fetch('https://notes.basboot.nl/notes/', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
-        const data = await response.json();
-        navigate('/')
-        console.log(data);
-    } catch (error) {
+            const response = await fetch(`https://notes.basboot.nl/notes/${params.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            const data = await response.json();
+            navigate('/')
+            console.log(data);
+        } catch (error) {
             console.error('OHNOOOOOO', error)
         }
     }
@@ -54,6 +70,7 @@ function FormComponent() {
                     type="text"
                     id="title"
                     name="title"
+                    placeholder={stone.title}
                     value={formData.title}
                     onChange={handleInputChange}
                 />
@@ -64,6 +81,7 @@ function FormComponent() {
                     type="text"
                     id="author"
                     name="author"
+                    placeholder={stone.author}
                     value={formData.author}
                     onChange={handleInputChange}
                 />
@@ -74,6 +92,7 @@ function FormComponent() {
                     type="text"
                     id="body"
                     name="body"
+                    placeholder={stone.body}
                     value={formData.body}
                     onChange={handleInputChange}
                 />
@@ -83,4 +102,4 @@ function FormComponent() {
     );
 }
 
-export default FormComponent;
+export default StoneEdit;

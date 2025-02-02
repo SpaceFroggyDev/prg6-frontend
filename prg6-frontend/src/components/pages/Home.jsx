@@ -9,7 +9,7 @@ function Home() {
     useEffect(() => {
         async function fetchStones() {
             try {
-                const response = await fetch('http://145.24.223.191:8042/stones', {
+                const response = await fetch('https://notes.basboot.nl/notes/', {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -32,8 +32,7 @@ function Home() {
     return (
         <>
             <div>
-                {/*<FormComponent OnCreate={onSpotCreate}/>*/}
-                { stones.map((stone) => <StonesList item = {stone} key = {stone.id}>  </StonesList>)}
+                { stones.map((stone) => <StonesList stone = {stone} key = {stone.id}>  </StonesList>)}
             </div>
         </>
     );

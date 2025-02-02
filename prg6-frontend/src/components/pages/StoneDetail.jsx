@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useParams} from "react-router";
+import {Link, useParams} from "react-router";
 
 function StoneDetail() {
 
@@ -10,7 +10,7 @@ function StoneDetail() {
     useEffect(() => {
         async function fetchStones() {
             try {
-                const response = await fetch(`http://145.24.223.191:8042/stones` + id, {
+                const response = await fetch(`https://notes.basboot.nl/notes/` + id, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -32,9 +32,11 @@ function StoneDetail() {
     return (
         <>
             <div>
-                <h5>{stones.name}</h5>
-                <p>{stones.type}</p>
-                <p>{stones.description}</p>
+                <article>
+                    <h2>{stones.title}</h2>
+                    <p>Stone found by {stones.author}</p>
+                    <p>{stones.body}</p>
+                </article>
             </div>
         </>
     )

@@ -7,6 +7,9 @@ import Layout from "./components/Layout.jsx";
 import Home from "./components/pages/Home.jsx";
 import StoneDetail from "./components/pages/StoneDetail.jsx";
 import StoneCreate from "./components/pages/StoneCreate.jsx";
+import StoneEdit from "./components/pages/StoneEdit.jsx";
+import StoneDelete from "./components/pages/StoneDelete.jsx";
+import ErrorPage from "./components/pages/ErrorPage.jsx";
 
 
 const router = createBrowserRouter([
@@ -24,7 +27,19 @@ const router = createBrowserRouter([
             {
                 path: '/stones/create',
                 element: <StoneCreate/>,
-            }
+            },
+            {
+                path: '/stones/:id/edit',
+                element: <StoneEdit/>,
+            },
+            {
+                path: '/stones/:id/delete',
+                element: <StoneDelete/>,
+            },
+            {
+                path: "*",
+                element: <ErrorPage/>,
+            },
         ]
     }
 ])

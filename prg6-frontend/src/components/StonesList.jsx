@@ -2,15 +2,19 @@ import {Link} from "react-router";
 
 function StonesList({stone}) {
     return (
-        <div>
-            <h5>{stone.name}</h5>
-            <p>{stone.type}</p>
-            <p>{stone.description}</p>
-
-            <Link to={`stones/${stone.id}`}>
-                details
-            </Link>
-
+        <div className="stone-container">
+            <h5>{stone.title}</h5>
+            <div className="buttons">
+                <Link to={`stones/${stone.id}`}>
+                    details
+                </Link>
+                <Link to={`stones/${stone.id}/edit`}>
+                    edit
+                </Link>
+                <Link to={`stones/${stone.id}/delete`}>
+                    delete
+                </Link>
+            </div>
         </div>
     )
 }
