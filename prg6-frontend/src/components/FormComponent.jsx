@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from "react-router";
 
 function FormComponent() {
@@ -7,10 +7,7 @@ function FormComponent() {
 
     const [formData, setFormData] = useState({
         name: '',
-        img_url: '',
-        category: '',
-        hardness: '',
-        diaphaneity: '',
+        type: '',
         description: '',
     });
 
@@ -33,7 +30,7 @@ function FormComponent() {
 
         try{
 
-        const response = await fetch('https://notes.basboot.nl/notes', {
+        const response = await fetch('http://145.24.223.191:8042/stones', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -52,36 +49,36 @@ function FormComponent() {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
-                    id="title"
-                    name="title"
-                    value={formData.title}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="body">Body:</label>
+                <label htmlFor="type">Type:</label>
                 <input
                     type="text"
-                    id="body"
-                    name="body"
-                    value={formData.body}
+                    id="type"
+                    name="type"
+                    value={formData.type}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="author">Author:</label>
+                <label htmlFor="category">Description:</label>
                 <input
                     type="text"
-                    id="author"
-                    name="author"
-                    value={formData.author}
+                    id="description"
+                    name="description"
+                    value={formData.description}
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Verzenden</button>
+            <button type="submit">Submit</button>
         </form>
     );
 }

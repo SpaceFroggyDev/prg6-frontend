@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {createBrowserRouter, RouterProvider} from "react-router";
 import './App.css';
-import StonesList from "./components/StonesList.jsx";
-import FormComponent from "./components/FormComponent.jsx";
+// import StonesList from "./components/StonesList.jsx";
+// import FormComponent from "./components/FormComponent.jsx";
 import Layout from "./components/Layout.jsx";
 import Home from "./components/pages/Home.jsx";
 import StoneDetail from "./components/pages/StoneDetail.jsx";

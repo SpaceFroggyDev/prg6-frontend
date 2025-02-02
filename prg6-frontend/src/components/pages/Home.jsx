@@ -9,7 +9,7 @@ function Home() {
     useEffect(() => {
         async function fetchStones() {
             try {
-                const response = await fetch('https://notes.basboot.nl/notes', {
+                const response = await fetch('http://145.24.223.191:8042/stones', {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'

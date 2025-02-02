@@ -10,7 +10,7 @@ function StoneDetail() {
     useEffect(() => {
         async function fetchStones() {
             try {
-                const response = await fetch(`https://notes.basboot.nl/notes/` + id, {
+                const response = await fetch(`http://145.24.223.191:8042/stones` + id, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -31,10 +31,11 @@ function StoneDetail() {
 
     return (
         <>
-            <img src={item.img_url} alt="image of a stone">
-            <h5>{item.name}</h5>
-            <p>{item.category}</p>
-            <p>{item.description}</p>
+            <div>
+                <h5>{stones.name}</h5>
+                <p>{stones.type}</p>
+                <p>{stones.description}</p>
+            </div>
         </>
     )
 }

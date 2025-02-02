@@ -1,17 +1,17 @@
 import {Link} from "react-router";
 
-function StonesList({item}) {
+function StonesList({stone}) {
     return (
-        <article>
-            <h5>{item.name}</h5>
-            <p>{item.category}</p>
-            <p>{item.description}</p>
+        <div>
+            <h5>{stone.name}</h5>
+            <p>{stone.type}</p>
+            <p>{stone.description}</p>
 
-            <Link to={`stones/${item.id}`}>
+            <Link to={`stones/${stone.id}`}>
                 details
             </Link>
 
-        </article>
+        </div>
     )
 }
 
