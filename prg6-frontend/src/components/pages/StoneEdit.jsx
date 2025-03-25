@@ -12,7 +12,7 @@ function StoneEdit() {
     }, []);
 
     const loadStone = async () => {
-        const response = await fetch(`https://notes.basboot.nl/notes/${params.id}`, {
+        const response = await fetch(`http://145.24.223.191:8042/stones/${params.id}`, {
         headers: {
             'Accept': 'application/json'
         }
@@ -24,7 +24,7 @@ function StoneEdit() {
 
     const [formData, setFormData] = useState({
         name: '',
-        type: '',
+        category: '',
         description: '',
     });
 
@@ -46,7 +46,7 @@ function StoneEdit() {
 
         try{
 
-            const response = await fetch(`https://notes.basboot.nl/notes/${params.id}`, {
+            const response = await fetch(`http://145.24.223.191:8042/stones/${params.id}`, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -65,35 +65,35 @@ function StoneEdit() {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
-                    id="title"
-                    name="title"
-                    placeholder={stone.title}
-                    value={formData.title}
+                    id="name"
+                    name="name"
+                    placeholder={stone.name}
+                    value={formData.name}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="type">author:</label>
+                <label htmlFor="category">category:</label>
                 <input
                     type="text"
-                    id="author"
-                    name="author"
-                    placeholder={stone.author}
-                    value={formData.author}
+                    id="category"
+                    name="category"
+                    placeholder={stone.category}
+                    value={formData.category}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="body">Body:</label>
+                <label htmlFor="description">description:</label>
                 <input
                     type="text"
-                    id="body"
-                    name="body"
-                    placeholder={stone.body}
-                    value={formData.body}
+                    id="description"
+                    name="description"
+                    placeholder={stone.description}
+                    value={formData.description}
                     onChange={handleInputChange}
                 />
             </div>

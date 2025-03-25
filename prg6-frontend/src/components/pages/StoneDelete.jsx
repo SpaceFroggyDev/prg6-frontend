@@ -15,7 +15,7 @@ function StoneEdit() {
     const deleteStones = async ()=> {
         try{
 
-            const response = await fetch(`https://notes.basboot.nl/notes/${params.id}`, {
+            const response = await fetch(`http://145.24.223.191:8042/stones/${params.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'application/json',

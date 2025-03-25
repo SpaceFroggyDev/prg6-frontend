@@ -30,7 +30,7 @@ function FormComponent() {
 
         try{
 
-        const response = await fetch('https://notes.basboot.nl/notes/', {
+        const response = await fetch('http://145.24.223.191:8042/stones', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -49,32 +49,32 @@ function FormComponent() {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="title">Title:</label>
+                <label htmlFor="title">Name:</label>
                 <input
                     type="text"
-                    id="title"
-                    name="title"
-                    value={formData.title}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="type">author:</label>
+                <label htmlFor="category">category:</label>
                 <input
                     type="text"
-                    id="author"
-                    name="author"
-                    value={formData.author}
+                    id="category"
+                    name="category"
+                    value={formData.category}
                     onChange={handleInputChange}
                 />
             </div>
             <div>
-                <label htmlFor="body">Body:</label>
+                <label htmlFor="description">description:</label>
                 <input
                     type="text"
-                    id="body"
-                    name="body"
-                    value={formData.body}
+                    id="description"
+                    name="description"
+                    value={formData.description}
                     onChange={handleInputChange}
                 />
             </div>

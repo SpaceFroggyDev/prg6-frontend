@@ -10,7 +10,7 @@ function StoneDetail() {
     useEffect(() => {
         async function fetchStones() {
             try {
-                const response = await fetch(`https://notes.basboot.nl/notes/` + id, {
+                const response = await fetch(`http://145.24.223.191:8042/stones/` + id, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -21,6 +21,7 @@ function StoneDetail() {
                 console.log(data)
 
                 setStones(data);
+                console.log('Fetched data:', data);
 
             } catch (error) {
                 console.error('Fout bij het ophalen van het product:', error);
@@ -33,9 +34,9 @@ function StoneDetail() {
         <>
             <div>
                 <article>
-                    <h2>{stones.title}</h2>
-                    <p>Stone found by {stones.author}</p>
-                    <p>{stones.body}</p>
+                    <h2>{stones.name}</h2>
+                    <p>category: {stones.category}</p>
+                    <p>{stones.description}</p>
                 </article>
             </div>
         </>
