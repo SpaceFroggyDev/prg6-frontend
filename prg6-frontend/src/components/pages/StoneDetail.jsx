@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router";
+import categoryImages from "../categoryImages.jsx";
 
 function StoneDetail() {
 
@@ -33,10 +34,16 @@ function StoneDetail() {
     return (
         <>
             <div>
-                <article>
+                <article className="p-10">
                     <h2>{stones.name}</h2>
-                    <p>category: {stones.category}</p>
-                    <p>{stones.description}</p>
+                    <p className="italic">{stones.category}</p>
+                    <div className="flex flex-row justify-center items-center">
+                        <div>
+                            <img className="w-[20vw]" src={categoryImages[stones.category] || '../src/assets/BotW_Opal_Icon.png'}
+                                 alt={stones.category}/>
+                        </div>
+                            <p className="w-[30vw]">{stones.description}</p>
+                    </div>
                 </article>
             </div>
         </>

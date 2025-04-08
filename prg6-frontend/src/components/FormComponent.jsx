@@ -48,6 +48,7 @@ function FormComponent() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h1 className="pb-10">Add New Stone</h1>
             <div>
                 <label htmlFor="title">Name:</label>
                 <input
@@ -59,7 +60,7 @@ function FormComponent() {
                 />
             </div>
             <div>
-                <label htmlFor="category">category:</label>
+                <label htmlFor="category">Category:</label>
                 <input
                     type="text"
                     id="category"
@@ -69,7 +70,7 @@ function FormComponent() {
                 />
             </div>
             <div>
-                <label htmlFor="description">description:</label>
+                <label htmlFor="description">Description:</label>
                 <input
                     type="text"
                     id="description"
@@ -78,7 +79,7 @@ function FormComponent() {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="mt-10">Submit</button>
         </form>
     );
 }

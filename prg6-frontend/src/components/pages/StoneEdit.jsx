@@ -6,6 +6,11 @@ function StoneEdit() {
     const params = useParams()
     const navigate = useNavigate();
     const [stone, setStone] = useState([]);
+    const [formData, setFormData] = useState({
+        name: '',
+        category: '',
+        description: '',
+    });
 
     useEffect(() => {
         loadStone()
@@ -19,15 +24,12 @@ function StoneEdit() {
     });
     const data = await response.json();
     setStone(data);
-    console.log(data);
+        setFormData({
+            name: data.name,
+            category: data.category,
+            description: data.description,
+        });
 }
-
-    const [formData, setFormData] = useState({
-        name: '',
-        category: '',
-        description: '',
-    });
-
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFormData({
@@ -45,6 +47,13 @@ function StoneEdit() {
     const saveStones = async ()=> {
 
         try{
+            const updatedStone = {
+                ...stone,
+                ...formData,
+                name: formData.name || stone.name,
+                category: formData.category || stone.category,
+                description: formData.description || stone.description,
+            };
 
             const response = await fetch(`http://145.24.223.191:8042/stones/${params.id}`, {
                 method: 'PUT',
@@ -52,18 +61,19 @@ function StoneEdit() {
                     'Accept': 'application/json',
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(updatedStone)
             });
             const data = await response.json();
             navigate('/')
             console.log(data);
         } catch (error) {
-            console.error('OHNOOOOOO', error)
+            console.error(error)
         }
     }
 
     return (
         <form onSubmit={handleSubmit}>
+            <h1 className="pb-10">Edit Stone</h1>
             <div>
                 <label htmlFor="name">Name:</label>
                 <input
@@ -76,7 +86,7 @@ function StoneEdit() {
                 />
             </div>
             <div>
-                <label htmlFor="category">category:</label>
+                <label htmlFor="category">Category:</label>
                 <input
                     type="text"
                     id="category"
@@ -87,7 +97,7 @@ function StoneEdit() {
                 />
             </div>
             <div>
-                <label htmlFor="description">description:</label>
+                <label htmlFor="description">Description:</label>
                 <input
                     type="text"
                     id="description"
@@ -97,7 +107,7 @@ function StoneEdit() {
                     onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="mt-10">Submit</button>
         </form>
     );
 }

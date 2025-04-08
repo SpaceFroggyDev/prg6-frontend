@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import StonesList from "../StonesList.jsx";
-import FormComponent from "../FormComponent.jsx";
 
 function Home() {
 
@@ -31,7 +30,7 @@ function Home() {
 
     return (
         <>
-            <div>
+            <div className="flex flex-wrap justify-center">
                 { stones.map((stone) => <StonesList stone = {stone} key = {stone.id}>  </StonesList>)}
             </div>
         </>

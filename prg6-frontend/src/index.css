@@ -8,8 +8,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #EEE3CB;
+  background-color: #EEE3CB;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,17 +25,18 @@
 nav {
   display: flex;
   justify-content: space-evenly;
-  background-color: #213547;
+  background-color: #666d7c;
   padding: 1vw;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #97866A;
+  background-color: #967E76;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #97866A;
 }
 
 /*body {*/
@@ -58,12 +59,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #48352f;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #97866A;
 }
 button:focus,
 button:focus-visible {
@@ -72,24 +73,26 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #666d7c;
+    background-color: #EEE3CB;
   }
   a:hover {
-    color: #747bff;
+    color: #EEE3CB;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #EEE3CB;
   }
 }
 
 .stone-container {
-  background-color: #213547;
-  margin: 2vw 10vw;
+  background-color: #666d7c;
+  margin: 2vw;
   padding: 1vw;
   border-radius: 1vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 25vw;
 }
 
 h2 {
@@ -97,25 +100,55 @@ h2 {
 }
 
 h5 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 a {
-  background-color: #1a1a1a;
-  color: #959aa5;
+  background-color: #48352f;
+  color: #EEE3CB;
   margin: 1vw;
   padding: 1vw;
   border-radius: 2vh;
 }
 
 nav a {
-  background-color: #213547;
-  color: #959aa5;
+  background-color: #666d7c;
+  color: #EEE3CB;
   margin: 0;
 }
 
 article {
   margin: 2vw;
+}
+
+article p, article h2, label, h1 {
+  color: #48352f;
+}
+
+input {
+  background-color: #48352f;
+  padding: 1vw;
+  margin: 1vw;
+  border-radius: 3vw;
+  flex: 4;
+}
+
+label {
+  font-size: 1.2rem;
+  flex: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 5vw 10vw;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .img-container {
@@ -128,6 +161,21 @@ img {
   border-radius: 2vh;
 }
 
+.stone-img img {
+  height: 25vh;
+  padding: 1vw;
+  width: 20vw;
+  object-fit: contain;
+}
+
+.stone-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .buttons {
   margin: 1vw;
+  display: flex;
+  flex-direction: column;
 }
